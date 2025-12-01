@@ -1,0 +1,78 @@
+@use "functions" as fn;
+
+/// Media query mixin
+/// @param {String} $breakpoint - breakpoint name ('sm' or 'md')
+@mixin breakpoint-up($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint defined for `#{$breakpoint}`.";
+  }
+}
+
+/// Typography mixin
+@mixin typography-display-name {
+  font-size: fn.px-to-rem(36px);
+  font-weight: 700;
+  line-height: fn.px-to-rem(40px);
+
+  @include breakpoint-up(sm) {
+    font-size: fn.px-to-rem(48px);
+    line-height: 1;
+  }
+}
+
+@mixin typography-display-title {
+  font-size: fn.px-to-rem(18px);
+  font-weight: 500;
+  line-height: fn.px-to-rem(28px);
+  letter-spacing: -0.025em;
+
+  @include breakpoint-up(sm) {
+    font-size: fn.px-to-rem(20px);
+    line-height: fn.px-to-rem(28px);
+  }
+}
+
+@mixin typography-display-summary {
+  font-size: fn.px-to-rem(16px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@mixin typography-navigation-link {
+  font-size: fn.px-to-rem(12px);
+  font-weight: 700;
+  line-height: fn.px-to-rem(16px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@mixin typography-about-paragraph {
+  font-size: fn.px-to-rem(16px);
+  font-weight: 400;
+}
+
+@mixin typography-resume {
+  font-size: fn.px-to-rem(16px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@mixin typography-section-title {
+  font-size: fn.px-to-rem(14px);
+  font-weight: 700;
+  line-height: fn.px-to-rem(20px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

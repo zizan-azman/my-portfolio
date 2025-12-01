@@ -1,0 +1,13 @@
+@use "functions" as fn;
+
+$primitives-color-orange: #f27c51;
+$primitives-color-abyss: #0f172a;
+$primitives-color-white: #e2e8f0;
+$primitives-color-gray: #94a3b8;
+$primitives-color-gray-2: #64748b;
+
+$mapped-accent-color: fn.hex-to-rgb-string($primitives-color-orange);
+$mapped-background-color: fn.hex-to-rgb-string($primitives-color-abyss);
+$mapped-foreground-color: fn.hex-to-rgb-string($primitives-color-gray);
+$mapped-emphasize-color: fn.hex-to-rgb-string($primitives-color-white);
+$mapped-subtle-color: fn.hex-to-rgb-string($primitives-color-gray-2);

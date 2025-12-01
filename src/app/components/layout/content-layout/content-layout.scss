@@ -1,0 +1,8 @@
+@use "abstracts/mixins" as mixin;
+@use "base/root-var" as root;
+
+.content-layout {
+  @include mixin.breakpoint-up(lg) {
+    padding: 96px 48px 96px 0;
+  }
+}

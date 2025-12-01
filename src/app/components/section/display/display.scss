@@ -1,0 +1,23 @@
+@use "abstracts/mixins" as mixin;
+@use "base/root-var" as root;
+@use "abstracts/functions" as fn;
+
+.display {
+  &__name {
+    color: rgba(root.$emphasize-color / 1);
+    @include mixin.typography-display-name;
+  }
+
+  &__job-title {
+    color: rgba(root.$emphasize-color / 1);
+    margin-top: fn.px-to-rem(12px);
+    @include mixin.typography-display-title;
+  }
+
+  &__summary {
+    max-width: fn.px-to-rem(320px);
+    color: rgba(root.$foreground-color / 1);
+    margin-top: fn.px-to-rem(16px);
+    @include mixin.typography-display-summary;
+  }
+}

@@ -1,0 +1,56 @@
+@use "abstracts/mixins" as mixin;
+@use "base/root-var" as root;
+@use "abstracts/functions" as fn;
+
+.navigation {
+  $navigation-margin-top: fn.px-to-rem(64px);
+  $navigation-link-padding: fn.px-to-rem(12px) 0;
+
+  display: none;
+
+  @include mixin.breakpoint-up(lg) {
+    margin-top: $navigation-margin-top;
+    display: block;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: $navigation-link-padding;
+    cursor: pointer;
+
+    &:hover .navigation__link-line {
+      background-color: rgb(root.$emphasize-color/1);
+      width: 4rem;
+    }
+
+    &:hover .navigation__link-text {
+      color: rgb(root.$emphasize-color/1);
+    }
+  }
+
+  &__link--active {
+    .navigation__link-line {
+      background-color: rgb(root.$emphasize-color/1);
+      width: 4rem;
+    }
+    .navigation__link-text {
+      color: rgb(root.$emphasize-color/1);
+    }
+  }
+
+  &__link-line {
+    height: 1px;
+    width: 2rem;
+    margin-right: 1rem;
+    background-color: rgb(root.$subtle-color/1);
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  &__link-text {
+    @include mixin.typography-navigation-link;
+    color: rgb(root.$subtle-color/1);
+    transition: color 0.3s ease-in-out;
+  }
+}

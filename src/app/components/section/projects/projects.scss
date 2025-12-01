@@ -1,0 +1,16 @@
+@use "abstracts/functions" as fn;
+@use "abstracts/mixins" as mixin;
+@use "base/root-var" as root;
+
+.projects {
+  scroll-margin-top: 96px;
+  margin-bottom: 4rem;
+
+  @include mixin.breakpoint-up(md) {
+    margin-bottom: 6rem;
+  }
+
+  @include mixin.breakpoint-up(lg) {
+    margin-bottom: 9rem;
+  }
+}

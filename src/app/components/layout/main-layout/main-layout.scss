@@ -1,0 +1,21 @@
+@use "abstracts/mixins" as mixin;
+
+.main-layout {
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  padding: 48px 24px;
+
+  @include mixin.breakpoint-up(md) {
+    padding: 64px 48px;
+  }
+
+  @include mixin.breakpoint-up(lg) {
+    gap: 16px;
+    flex-direction: row;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 0;
+  }
+}

@@ -1,0 +1,6 @@
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins" as mixin;
+
+.typography-display-name {
+  @include mixin.typography-display-name;
+}

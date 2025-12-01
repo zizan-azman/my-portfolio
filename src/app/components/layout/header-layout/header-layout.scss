@@ -1,0 +1,23 @@
+@use "abstracts/mixins" as mixin;
+@use "abstracts/functions" as fn;
+
+:host {
+  @include mixin.breakpoint-up(lg) {
+    position: sticky;
+    top: 0;
+    flex: 0 0 50%;
+  }
+}
+
+.header-layout {
+  $header-layout-padding-lg: fn.px-to-rem(96px) fn.px-to-rem(0px)
+    fn.px-to-rem(96px) fn.px-to-rem(48px);
+
+  display: flex;
+  flex-direction: column;
+
+  @include mixin.breakpoint-up(lg) {
+    height: 100%;
+    padding: $header-layout-padding-lg;
+  }
+}

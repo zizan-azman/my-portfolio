@@ -1,0 +1,16 @@
+@use "abstracts/variables" as var;
+@use "abstracts/functions" as fn;
+
+:root {
+  --accent-color: #{var.$mapped-accent-color};
+  --foreground-color: #{var.$mapped-foreground-color};
+  --background-color: #{var.$mapped-background-color};
+  --emphasize-color: #{var.$mapped-emphasize-color};
+  --subtle-color: #{var.$mapped-subtle-color};
+}
+
+$accent-color: var(--accent-color);
+$foreground-color: var(--foreground-color);
+$background-color: var(--background-color);
+$emphasize-color: var(--emphasize-color);
+$subtle-color: var(--subtle-color);

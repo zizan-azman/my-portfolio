@@ -1,0 +1,21 @@
+@use "sass:meta";
+@use "sass:color";
+
+@function hex-to-rgb-string($color) {
+  // Ensure input is a color
+  @if meta.type-of($color) != "color" {
+    @warn "hex-to-rgb-string(): input must be a valid SCSS color. Got `#{$color}`";
+    @return null;
+  }
+
+  $r: color.channel($color, "red", $space: rgb);
+  $g: color.channel($color, "green", $space: rgb);
+  $b: color.channel($color, "blue", $space: rgb);
+
+  // Return as a space-separated string
+  @return "#{$r} #{$g} #{$b}";
+}
+
+@function px-to-rem($px, $base-font-size: 16px) {
+  @return calc(($px / $base-font-size) * 1rem);
+}

@@ -1,0 +1,21 @@
+@use "abstracts/mixins" as mixin;
+@use "base/root-var" as root;
+@use "abstracts/functions" as fn;
+
+:host {
+  // To push the resume component to the bottom of the layout, use margin-top:auto
+  // when used inside a flex container
+  // This is another way to do it instead of creating another flex container and use space-between
+  margin-top: 32px;
+
+  @include mixin.breakpoint-up(lg) {
+    margin-top: auto;
+  }
+}
+
+.resume-link {
+  &__text {
+    color: rgba(root.$emphasize-color / 1);
+    @include mixin.typography-resume;
+  }
+}
