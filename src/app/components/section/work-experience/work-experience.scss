@@ -13,4 +13,123 @@
   @include mixin.breakpoint-up(lg) {
     margin-bottom: 9rem;
   }
+
+  &__item {
+    margin-bottom: fn.px-to-rem(48px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover .experience__hover-background {
+      @include mixin.breakpoint-up(lg) {
+        display: block;
+      }
+    }
+  }
+
+  &__work-item-container {
+    position: relative;
+    display: grid;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.15s;
+
+    @include mixin.breakpoint-up(sm) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: fn.px-to-rem(32px);
+    }
+
+    @include mixin.breakpoint-up(md) {
+      gap: fn.px-to-rem(16px);
+    }
+  }
+
+  &__hover-background {
+    display: none;
+    position: absolute;
+    z-index: 0;
+    top: fn.px-to-rem(-16px);
+    bottom: fn.px-to-rem(-16px);
+    left: fn.px-to-rem(-16px);
+    right: fn.px-to-rem(-16px);
+    border-radius: fn.px-to-rem(6px);
+
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+      filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.15s;
+
+    @include mixin.breakpoint-up(lg) {
+      box-shadow: 0 0 #0000, 0 0 #0000, inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+      filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
+        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+      background-color: rgba(30, 41, 59, 0.5);
+      left: fn.px-to-rem(-24px);
+      right: fn.px-to-rem(-24px);
+    }
+  }
+
+  &__year-of-service {
+    z-index: 10;
+    margin-bottom: fn.px-to-rem(12px);
+    color: rgb(root.$subtle-color / 1);
+    @include mixin.typography-experience-yos;
+
+    @include mixin.breakpoint-up(sm) {
+      grid-column: span 2 / span 2;
+    }
+  }
+
+  &__work-item-content {
+    z-index: 10;
+    @include mixin.breakpoint-up(sm) {
+      grid-column: span 6 / span 6;
+    }
+  }
+
+  &__job-title-link {
+    @include mixin.typography-experience-job-title;
+    color: rgb(root.$emphasize-color / 1);
+    display: flex;
+    align-items: end;
+    margin-bottom: fn.px-to-rem(8px);
+    gap: 4px;
+
+    &:hover {
+      color: rgb(root.$accent-color / 1);
+    }
+
+    &:hover .experience__link-icon {
+      transform: translate(3px, -3px);
+      color: rgb(root.$accent-color / 1);
+    }
+  }
+
+  &__link-icon {
+    width: 20px;
+    height: 20px;
+    color: rgb(root.$emphasize-color / 1);
+    transition: transform 0.25s ease-in-out, fill 0.25s ease-in-out;
+  }
+
+  &__paragraph {
+    @include mixin.typography-experience-paragraph;
+    margin-bottom: fn.px-to-rem(16px);
+  }
+
+  &__tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: fn.px-to-rem(6px);
+  }
+
+  &__tag {
+    @include mixin.typography-experience-tag;
+    background-color: rgb(root.$accent-color / 0.1);
+    color: rgb(root.$accent-color / 1);
+    padding: fn.px-to-rem(4px) fn.px-to-rem(12px);
+    border-radius: 9999px;
+  }
 }
