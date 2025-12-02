@@ -9,6 +9,7 @@ import { About } from '../section/about/about';
 import { ResumeLink } from '../resume/resume-link/resume-link';
 import { mockNavigationLinks } from '../../mock/navigation.mock';
 import { Projects } from '../section/projects/projects';
+import { mockResumeLink } from '../../mock/resume-link.mock';
 
 @Component({
   selector: 'app-home',
@@ -28,4 +29,5 @@ import { Projects } from '../section/projects/projects';
 })
 export class Home {
   mockNavigationData = mockNavigationLinks;
+  mockResumeLinkData = mockResumeLink;
 }

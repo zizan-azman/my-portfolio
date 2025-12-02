@@ -1,6 +1,20 @@
 <div class="resume-link">
-  <a class="resume-link__link" href="/resume" target="_blank" rel="noopener">
-    <span class="resume-link__text">View Full Résumé</span>
-    <span class="resume-link__icon"></span>
+  <a
+    class="resume-link__link"
+    [href]="resumeLinkData.href"
+    target="_blank"
+    rel="noopener"
+  >
+    <span class="resume-link__text">{{ resumeLinkData.text }}</span>
+    <svg
+      class="resume-link__icon"
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="#e3e3e3"
+    >
+      <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+    </svg>
   </a>
 </div>
