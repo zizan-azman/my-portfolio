@@ -1,4 +1,4 @@
-export interface ResumeLinkModel {
+export interface ResumeLinkConfig {
   href: string;
   text: string;
 }

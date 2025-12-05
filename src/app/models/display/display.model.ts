@@ -1,4 +1,4 @@
-export interface DisplayModel {
+export interface DisplayConfig {
   name: string;
   role: string;
   summary: string;

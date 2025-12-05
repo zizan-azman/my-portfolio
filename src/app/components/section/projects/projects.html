@@ -1,19 +1,20 @@
 <section class="projects" id="projects">
   <app-section-title title="Projects" />
   <ol role="list" class="projects__list">
+    @for (item of projectsData.projects; track item) {
     <li class="projects__item">
       <div class="projects__project-item-container">
         <div class="projects__hover-background"></div>
         <div class="projects__img-container">
           <img
-            src="assets/imgs/projects/siera.png"
-            alt="Illustration of Siera Cat Shelter"
+            src="{{ item.img.url }}"
+            alt="{{ item.img.alt }}"
             class="projects__img"
           />
         </div>
         <div class="projects__project-item-content">
-          <a href="" class="projects__project-link">
-            <span class="projects__link-text">Siera.com</span>
+          <a href="{{ item.href }}" class="projects__project-link">
+            <span class="projects__link-text">{{ item.text }}</span>
             <svg
               class="projects__link-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -28,86 +29,22 @@
             </svg>
           </a>
           <p class="projects__paragraph">
-            Build and maintain critical components used to construct Klaviyo’s
-            frontend, across the whole product. Work closely with
-            cross-functional teams, including developers, designers, and product
-            managers, to implement and advocate for best practices in web
-            accessibility.
+            {{ item.paragraph }}
           </p>
           <ul
             role="list"
             class="projects__tags-container"
             aria-label="Technologies used"
           >
+            @for (tag of item.tags; track tag) {
             <li class="projects__tag-item">
-              <div class="projects__tag">Javascript</div>
+              <div class="projects__tag">{{ tag }}</div>
             </li>
-            <li class="projects__tag-item">
-              <div class="projects__tag">SCSS</div>
-            </li>
-            <li class="projects__tag-item">
-              <div class="projects__tag">Webpack</div>
-            </li>
-            <li class="projects__tag-item">
-              <div class="projects__tag">Sitecore 10.4</div>
-            </li>
+            }
           </ul>
         </div>
       </div>
     </li>
-    <li class="projects__item">
-      <div class="projects__project-item-container">
-        <div class="projects__hover-background"></div>
-        <div class="projects__img-container">
-          <img
-            src="assets/imgs/projects/siera.png"
-            alt="Illustration of Siera Cat Shelter"
-            class="projects__img"
-          />
-        </div>
-        <div class="projects__project-item-content">
-          <a href="" class="projects__project-link">
-            <span class="projects__link-text">Siera.com</span>
-            <svg
-              class="projects__link-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="currentColor"
-            >
-              <path
-                d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"
-              />
-            </svg>
-          </a>
-          <p class="projects__paragraph">
-            Build and maintain critical components used to construct Klaviyo’s
-            frontend, across the whole product. Work closely with
-            cross-functional teams, including developers, designers, and product
-            managers, to implement and advocate for best practices in web
-            accessibility.
-          </p>
-          <ul
-            role="list"
-            class="projects__tags-container"
-            aria-label="Technologies used"
-          >
-            <li class="projects__tag-item">
-              <div class="projects__tag">Javascript</div>
-            </li>
-            <li class="projects__tag-item">
-              <div class="projects__tag">SCSS</div>
-            </li>
-            <li class="projects__tag-item">
-              <div class="projects__tag">Webpack</div>
-            </li>
-            <li class="projects__tag-item">
-              <div class="projects__tag">Sitecore 10.4</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
+    }
   </ol>
 </section>

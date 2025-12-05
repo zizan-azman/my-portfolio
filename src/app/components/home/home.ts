@@ -7,9 +7,13 @@ import { Navigation } from '../navigation/navigation';
 import { WorkExperience } from '../section/work-experience/work-experience';
 import { About } from '../section/about/about';
 import { ResumeLink } from '../resume/resume-link/resume-link';
-import { mockNavigationLinks } from '../../mock/navigation.mock';
 import { Projects } from '../section/projects/projects';
-import { mockResumeLink } from '../../mock/resume-link.mock';
+import { MockNavigation } from '../../mock/navigation.mock';
+import { MockResumeLink } from '../../mock/resume-link.mock';
+import { MockDisplay } from '../../mock/display.mock';
+import { MockAbout } from '../../mock/about.mock';
+import { MockExperience } from '../../mock/experience.mock';
+import { MockProjects } from '../../mock/projects.mock';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +32,10 @@ import { mockResumeLink } from '../../mock/resume-link.mock';
   styleUrl: './home.scss',
 })
 export class Home {
-  mockNavigationData = mockNavigationLinks;
-  mockResumeLinkData = mockResumeLink;
+  mockNavigationData = MockNavigation;
+  mockResumeLinkData = MockResumeLink;
+  mockDisplayData = MockDisplay;
+  mockAboutData = MockAbout;
+  mockExperienceData = MockExperience;
+  mockProjectsData = MockProjects;
 }

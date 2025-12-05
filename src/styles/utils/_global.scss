@@ -1,0 +1,5 @@
+@use "../base/root-var" as root;
+
+.text-emphasize {
+  color: rgb(root.$emphasize-color/1);
+}

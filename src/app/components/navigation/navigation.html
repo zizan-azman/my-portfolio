@@ -1,6 +1,6 @@
 <nav class="navigation" aria-label="Main navigation">
   <ul class="navigation__list" role="list">
-    @for (item of links; track item.href) {
+    @for (item of navigationData.links; track item.href) {
     <li class="navigation__item">
       <a
         class="navigation__link"

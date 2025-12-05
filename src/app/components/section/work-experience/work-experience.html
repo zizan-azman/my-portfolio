@@ -1,15 +1,14 @@
 <section class="experience" id="experience">
   <app-section-title title="Work Experience" />
   <ol role="list" class="experience__list">
+    @for (item of experienceData.experiences; track item) {
     <li class="experience__item">
       <div class="experience__work-item-container">
         <div class="experience__hover-background"></div>
-        <div class="experience__year-of-service">2024 — Present</div>
+        <div class="experience__year-of-service">{{ item.yos }}</div>
         <div class="experience__work-item-content">
-          <a href="" class="experience__job-title-link">
-            <span class="experience__link-text"
-              >Front End Developer · Orsted Services MY Sdn Bhd</span
-            >
+          <a href="{{ item.href }}" class="experience__job-title-link">
+            <span class="experience__link-text">{{ item.text }}</span>
             <svg
               class="experience__link-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -24,82 +23,22 @@
             </svg>
           </a>
           <p class="experience__paragraph">
-            Build and maintain critical components used to construct Klaviyo’s
-            frontend, across the whole product. Work closely with
-            cross-functional teams, including developers, designers, and product
-            managers, to implement and advocate for best practices in web
-            accessibility.
+            {{ item.paragraph }}
           </p>
           <ul
             role="list"
             class="experience__tags-container"
             aria-label="Technologies used"
           >
+            @for (tag of item.tags; track tag) {
             <li class="experience__tag-item">
-              <div class="experience__tag">Javascript</div>
+              <div class="experience__tag">{{ tag }}</div>
             </li>
-            <li class="experience__tag-item">
-              <div class="experience__tag">SCSS</div>
-            </li>
-            <li class="experience__tag-item">
-              <div class="experience__tag">Webpack</div>
-            </li>
-            <li class="experience__tag-item">
-              <div class="experience__tag">Sitecore 10.4</div>
-            </li>
+            }
           </ul>
         </div>
       </div>
     </li>
-    <li class="experience__item">
-      <div class="experience__work-item-container">
-        <div class="experience__hover-background"></div>
-        <div class="experience__year-of-service">2024 — Present</div>
-        <div class="experience__work-item-content">
-          <a href="" class="experience__job-title-link">
-            <span class="experience__link-text"
-              >Front End Developer · Orsted Services MY Sdn Bhd</span
-            >
-            <svg
-              class="experience__link-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="currentColor"
-            >
-              <path
-                d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"
-              />
-            </svg>
-          </a>
-          <p class="experience__paragraph">
-            Build and maintain critical components used to construct Klaviyo’s
-            frontend, across the whole product. Work closely with
-            cross-functional teams, including developers, designers, and product
-            managers, to implement and advocate for best practices in web
-            accessibility.
-          </p>
-          <ul
-            role="list"
-            class="experience__tags-container"
-            aria-label="Technologies used"
-          >
-            <li class="experience__tag-item">
-              <div class="experience__tag">Javascript</div>
-            </li>
-            <li class="experience__tag-item">
-              <div class="experience__tag">SCSS</div>
-            </li>
-            <li class="experience__tag-item">
-              <div class="experience__tag">Webpack</div>
-            </li>
-            <li class="experience__tag-item">
-              <div class="experience__tag">Sitecore 10.4</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
+    }
   </ol>
 </section>

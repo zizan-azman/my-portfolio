@@ -1,12 +1,12 @@
 <app-main-layout>
   <app-header-layout>
-    <app-display />
-    <app-navigation [links]="mockNavigationData" />
+    <app-display [displayData]="mockDisplayData" />
+    <app-navigation [navigationData]="mockNavigationData" />
     <app-resume-link [resumeLinkData]="mockResumeLinkData" />
   </app-header-layout>
   <app-content-layout>
-    <app-about />
-    <app-work-experience />
-    <app-projects />
+    <app-about [aboutData]="mockAboutData" />
+    <app-work-experience [experienceData]="mockExperienceData" />
+    <app-projects [projectsData]="mockProjectsData" />
   </app-content-layout>
 </app-main-layout>

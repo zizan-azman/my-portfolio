@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ResumeLinkModel } from '../../../models/resume-link/resume-link.model';
+import { ResumeLinkConfig } from '../../../models/resume-link/resume-link.model';
 
 @Component({
   selector: 'app-resume-link',
@@ -8,5 +8,5 @@ import { ResumeLinkModel } from '../../../models/resume-link/resume-link.model';
   styleUrl: './resume-link.scss',
 })
 export class ResumeLink {
-  @Input() resumeLinkData!: ResumeLinkModel;
+  @Input() resumeLinkData!: ResumeLinkConfig;
 }

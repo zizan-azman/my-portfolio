@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionTitle } from '../section-title/section-title';
+import { AboutConfig } from '../../../models/about/about.model';
 
 @Component({
   selector: 'app-about',
@@ -7,4 +8,6 @@ import { SectionTitle } from '../section-title/section-title';
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
-export class About {}
+export class About {
+  @Input() aboutData!: AboutConfig;
+}

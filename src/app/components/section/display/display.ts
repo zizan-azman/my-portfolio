@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DisplayConfig } from '../../../models/display/display.model';
 
 @Component({
   selector: 'app-display',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './display.scss',
 })
 export class Display {
-
+  @Input() displayData!: DisplayConfig;
 }

@@ -1,6 +1,6 @@
-import { ResumeLinkModel } from '../models/resume-link/resume-link.model';
+import { ResumeLinkConfig } from '../models/resume-link/resume-link.model';
 
-export const mockResumeLink: ResumeLinkModel = {
+export const MockResumeLink: ResumeLinkConfig = {
   href: '/resume',
   text: 'View Full Résumé',
 };
