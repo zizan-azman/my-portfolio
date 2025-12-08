@@ -2,25 +2,9 @@ import { AboutConfig } from '../models/about/about.model';
 
 export const MockAbout: AboutConfig = {
   paragraphs: [
-    ` I'm a <span class="text-emphasize">developer</span> passionate about crafting accessible, pixel-perfect user
-      interfaces that blend thoughtful design with robust engineering. My
-      favorite work lies at the intersection of design and development, creating
-      experiences that not only look great but are meticulously built for
-      performance and usability.`,
-    `Currently, I'm a Senior Front-End Engineer at
-      <span class="text-emphasize">Klaviyo</span>, specializing in accessibility. I contribute to the creation and
-      maintenance of UI components that power Klaviyo's frontend, ensuring our
-      platform meets web accessibility standards and best practices to deliver
-      an inclusive user experience.`,
-    ` In the past, I've had the opportunity to develop software across a variety
-      of settings — from <span class="text-emphasize">advertising agencies</span> and
-      <span class="text-emphasize">large corporations</span> to
-      <span class="text-emphasize">start-ups</span> and
-      <span class="text-emphasize">small digital product studios</span>. Additionally, I also released a
-      <span class="text-emphasize">comprehensive video course</span>
-      a few years ago, guiding learners through building a web app with the
-      Spotify API.`,
-    ` In my spare time, I'm usually climbing, playing tennis, hanging out with
-      my wife and two cats.`,
+    `I'm a <span class="text-emphasize">Front-End Engineer</span> with 6+ years of experience creating intuitive, scalable, and high-quality user interfaces. I am passionate about maintainable code, and building experiences that balance performance with beautiful design.`,
+    `Most recently, I worked at <span class="text-emphasize">Ørsted Services Malaysia Sdn Bhd</span>, where I collaborated with cross-functional teams within our <span class="text-emphasize">ART</span> to build and maintain 60+ public-facing websites using <span class="text-emphasize">Sitecore 10.4 CMS</span> and a custom <span class="text-emphasize">Webpack</span>-based frontend solution. I worked closely with designers and managed to enhance the design-to-code workflow and improved our frontend design system through <span class="text-emphasize">Design Tokens</span> and <span class="text-emphasize">Figma Variables</span>. I also worked on <span class="text-emphasize">SEO</span> improvements on Ørsted’s websites by improving <span class="text-emphasize">Cumulative Layout Shift (CLS)</span>. Additionally, I mentored two junior engineers in the <span class="text-emphasize">Angular</span> ecosystem.`,
+    `I’m always keeping myself updated on what's new in <span class="text-emphasize">Angular</span>, modern <span class="text-emphasize">CSS</span>, and any new frontend-related topic.`,
+    `Outside of work, I enjoy playing online games, watching movies, and taking care of my cats at home 🐱`,
   ],
 };
