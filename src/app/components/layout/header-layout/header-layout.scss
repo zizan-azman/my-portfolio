@@ -11,8 +11,19 @@
 }
 
 .header-layout {
-  $header-layout-padding-lg: fn.px-to-rem(96px) fn.px-to-rem(0px)
-    fn.px-to-rem(96px) fn.px-to-rem(48px);
+  /* Self */
+  --header-layout-padding-lg: #{fn.px-to-rem(96px) fn.px-to-rem(0px)
+    fn.px-to-rem(96px) fn.px-to-rem(48px)};
+  /* Radial Background */
+  --radial-top: -250px;
+  --radial-left: -300px;
+  --radial-width: #{fn.px-to-rem(800px)};
+  --radial-height: #{fn.px-to-rem(800px)};
+  --radial-border-radius: 50%;
+  --radial-background: radial-gradient(
+    rgba(29, 78, 216, 0.15),
+    transparent 70%
+  );
 
   position: relative;
   display: flex;
@@ -20,17 +31,17 @@
 
   @include mixin.breakpoint-up(lg) {
     height: 100%;
-    padding: $header-layout-padding-lg;
+    padding: var(--header-layout-padding-lg);
   }
 
   &__radial-background {
     position: absolute;
-    top: -250px;
-    left: -300px;
     z-index: -1;
-    width: 800px;
-    height: 800px;
-    border-radius: 50%;
-    background: radial-gradient(rgba(29, 78, 216, 0.15), transparent 80%);
+    top: var(--radial-top);
+    left: var(--radial-left);
+    width: var(--radial-width);
+    height: var(--radial-height);
+    border-radius: var(--radial-border-radius);
+    background: var(--radial-background);
   }
 }

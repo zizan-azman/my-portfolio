@@ -1,25 +1,36 @@
 @use "abstracts/mixins" as mixin;
+@use "abstracts/functions" as fn;
 
 .main-layout {
+  /* Self */
+  --main-layout-max-width: #{fn.px-to-rem(1280px)};
+  --main-layout-min-height: 100vh;
+  --main-layout-margin: 0 auto;
+  --main-layout-padding: #{fn.px-to-rem(48px) fn.px-to-rem(24px)};
+  --main-layout-padding-md: #{fn.px-to-rem(64px) fn.px-to-rem(48px)};
+  --main-layout-padding-lg: 0;
+  /* Wrapper */
+  --main-layout-wrapper-gap: #{fn.px-to-rem(16px)};
+
+  max-width: var(--main-layout-max-width);
+  min-height: var(--main-layout-min-height);
+  margin: var(--main-layout-margin);
+  padding: var(--main-layout-padding);
   scroll-behavior: smooth;
-  padding: 48px 24px;
-  max-width: 1280px;
-  min-height: 100vh;
-  margin: 0 auto;
 
   @include mixin.breakpoint-up(md) {
-    padding: 64px 48px;
+    padding: var(--main-layout-padding-md);
   }
 
   @include mixin.breakpoint-up(lg) {
-    padding: 0;
+    padding: var(--main-layout-padding-lg);
   }
 
   &__wrapper {
     @include mixin.breakpoint-up(lg) {
       display: flex;
-      gap: 16px;
       justify-content: space-between;
+      gap: var(--main-layout-wrapper-gap);
     }
   }
 }
