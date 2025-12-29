@@ -3,54 +3,74 @@
 @use "abstracts/functions" as fn;
 
 .navigation {
-  $navigation-margin-top: fn.px-to-rem(64px);
-  $navigation-link-padding: fn.px-to-rem(12px) 0;
+  /* Self */
+  --navigation-margin-top-lg: #{fn.px-to-rem(64px)};
+  /* Link */
+  --navigation-link-padding: #{fn.px-to-rem(12px) 0};
+  /* Link Line */
+  --navigation-link-line-height: 1px;
+  --navigation-link-line-width: 2rem;
+  --navigation-link-line-margin-right: 1rem;
+  --navigation-link-line-bg-color: #{rgb(root.$subtle-color/1)};
+  --navigation-link-line-transition: width 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  --navigation-link-line-hover-width: 4rem;
+  --navigation-link-line-hover-bg-color: #{rgb(root.$emphasize-color/1)};
+  /* Link Line { Modifier - Active }*/
+  --navigation-link-line-active-bg-color: #{rgb(root.$emphasize-color/1)};
+  --navigation-link-line-active-width: 4rem;
+  /* Link Text */
+  --navigation-link-text-color: #{rgb(root.$subtle-color/1)};
+  --navigation-link-text-transition: color 0.3s ease-in-out;
+  --navigation-link-text-hover-color: #{rgb(root.$emphasize-color/1)};
+  /* Link Text { Modifier - Active }*/
+  --navigation-link-text-active-color: #{rgb(root.$emphasize-color/1)};
 
   display: none;
 
   @include mixin.breakpoint-up(lg) {
-    margin-top: $navigation-margin-top;
     display: block;
+    margin-top: var(--navigation-margin-top-lg);
   }
 
   &__link {
     display: flex;
     align-items: center;
     width: fit-content;
-    padding: $navigation-link-padding;
+    padding: var(--navigation-link-padding);
     cursor: pointer;
 
     &:hover .navigation__link-line {
-      background-color: rgb(root.$emphasize-color/1);
-      width: 4rem;
+      width: var(--navigation-link-line-hover-width);
+      background-color: var(--navigation-link-line-hover-bg-color);
     }
 
     &:hover .navigation__link-text {
-      color: rgb(root.$emphasize-color/1);
+      color: var(--navigation-link-text-hover-color);
     }
   }
 
   &__link--active {
     .navigation__link-line {
-      background-color: rgb(root.$emphasize-color/1);
-      width: 4rem;
+      width: var(--navigation-link-line-active-width);
+      background-color: var(--navigation-link-line-active-bg-color);
     }
     .navigation__link-text {
-      color: rgb(root.$emphasize-color/1);
+      color: var(--navigation-link-text-active-color);
     }
   }
 
   &__link-line {
-    height: 1px;
-    width: 2rem;
-    margin-right: 1rem;
-    background-color: rgb(root.$subtle-color/1);
-    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    width: var(--navigation-link-line-width);
+    height: var(--navigation-link-line-height);
+    margin-right: var(--navigation-link-line-margin-right);
+    background-color: var(--navigation-link-line-bg-color);
+    transition: var(--navigation-link-line-transition);
   }
 
   &__link-text {
+    color: var(--navigation-link-text-color);
+    transition: var(--navigation-link-text-transition);
     @include mixin.typography-navigation-link;
-    color: rgb(root.$subtle-color/1);
-    transition: color 0.3s ease-in-out;
   }
 }
