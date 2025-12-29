@@ -3,27 +3,35 @@
 @use "base/root-var" as root;
 
 .section-title {
-  $section-title-padding: fn.px-to-rem(20px) fn.px-to-rem(24px);
-  $section-title-padding-md: fn.px-to-rem(20px) fn.px-to-rem(48px);
-  $section-title-text-color: rgb(root.$emphasize-color/1);
+  /* Self */
+  --section-title-padding: #{fn.px-to-rem(20px) fn.px-to-rem(24px)};
+  --section-title-padding-md: #{fn.px-to-rem(20px) fn.px-to-rem(48px)};
+  --section-title-margin: #{0 fn.px-to-rem(-24px) fn.px-to-rem(16px)
+    fn.px-to-rem(-24px)};
+  --section-title-margin-md: #{0 fn.px-to-rem(-48px) fn.px-to-rem(16px)
+    fn.px-to-rem(-48px)};
+  --section-title-bg-color: #{rgb(root.$background-color / 0.75)};
+  --section-title-backdrop-filter: blur(8px);
+  /* Text */
+  --section-title-text-color: #{rgb(root.$emphasize-color/1)};
 
   position: sticky;
   top: 0;
-  padding: $section-title-padding;
-  margin: 0 -24px 16px -24px;
-  background-color: rgb(root.$background-color / 0.75);
-  backdrop-filter: blur(8px);
+  padding: var(--section-title-padding);
+  margin: var(--section-title-margin);
+  background-color: var(--section-title-bg-color);
+  backdrop-filter: var(--section-title-backdrop-filter);
 
   @include mixin.breakpoint-up(md) {
-    padding: $section-title-padding-md;
-    margin: 0 -48px 16px -48px;
+    padding: var(--section-title-padding-md);
+    margin: var(--section-title-margin-md);
   }
   @include mixin.breakpoint-up(lg) {
     display: none;
   }
 
   &__text {
-    color: $section-title-text-color;
+    color: var(--section-title-text-color);
     @include mixin.typography-section-title;
   }
 }
