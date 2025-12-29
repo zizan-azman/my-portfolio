@@ -14,6 +14,7 @@ import { MockDisplay } from '../../mock/display.mock';
 import { MockAbout } from '../../mock/about.mock';
 import { MockExperience } from '../../mock/experience.mock';
 import { MockProjects } from '../../mock/projects.mock';
+import { Footer } from '../section/footer/footer';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ import { MockProjects } from '../../mock/projects.mock';
     WorkExperience,
     About,
     Projects,
+    Footer,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',

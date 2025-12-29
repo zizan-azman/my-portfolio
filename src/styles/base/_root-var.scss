@@ -3,6 +3,7 @@
 
 :root {
   --accent-color: #{var.$mapped-accent-color};
+  --accent-minimal-color: #{var.$mapped-accent-minimal-color};
   --foreground-color: #{var.$mapped-foreground-color};
   --background-color: #{var.$mapped-background-color};
   --emphasize-color: #{var.$mapped-emphasize-color};
@@ -10,6 +11,7 @@
 }
 
 $accent-color: var(--accent-color);
+$accent-minimal-color: var(--accent-minimal-color);
 $foreground-color: var(--foreground-color);
 $background-color: var(--background-color);
 $emphasize-color: var(--emphasize-color);
