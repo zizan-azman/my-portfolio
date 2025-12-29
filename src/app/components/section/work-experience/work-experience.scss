@@ -3,22 +3,87 @@
 @use "base/root-var" as root;
 
 .experience {
-  scroll-margin-top: 96px;
-  margin-bottom: 4rem;
+  /* Self */
+  --experience-scroll-margin-top: #{fn.px-to-rem(96px)};
+  --experience-margin-bottom: 4rem;
+  --experience-margin-bottom-md: 6rem;
+  --experience-margin-bottom-lg: 9rem;
+  /* Item */
+  --experience-item-margin-bottom: #{fn.px-to-rem(48px)};
+  --experience-item-last-child-margin-bottom: 0;
+  /* Hover Background */
+  --experience-hover-background-position-offset: #{fn.px-to-rem(-16px)};
+  --experience-hover-background-position-offset-lg: #{fn.px-to-rem(-24px)};
+  --experience-hover-background-border-radius: #{fn.px-to-rem(6px)};
+  --experience-hover-background-transition-property: color, background-color,
+    border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  --experience-hover-background-transition-timing-function: cubic-bezier(
+    0.4,
+    0,
+    0.2,
+    1
+  );
+  --experience-hover-background-transition-duration: 0.15s;
+  --experience-hover-background-bg-color-lg: rgba(30, 41, 59, 0.5);
+  --experience-hover-background-box-shadow-lg: 0 0 #0000, 0 0 #0000,
+    inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+  --experience-hover-background-filter-lg: drop-shadow(
+      0 10px 8px rgba(0, 0, 0, 0.04)
+    )
+    drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+  /* Work Item Container*/
+  --experience-work-item-container-transition-timing-function: cubic-bezier(
+    0.4,
+    0,
+    0.2,
+    1
+  );
+  --experience-work-item-container-transition-duration: 0.15s;
+  --experience-work-item-container-gap-sm: #{fn.px-to-rem(32px)};
+  --experience-work-item-container-gap-md: #{fn.px-to-rem(16px)};
+  /* Year of service */
+  --experience-yos-margin-bottom: #{fn.px-to-rem(12px)};
+  --experience-yos-color: #{rgb(root.$subtle-color / 1)};
+  /* Job Title Link */
+  --experience-job-title-link-gap: #{fn.px-to-rem(4px)};
+  --experience-job-title-link-margin-bottom: #{fn.px-to-rem(16px)};
+  --experience-job-title-link-color: #{rgb(root.$emphasize-color / 1)};
+  --experience-job-title-link-hover-color: #{rgb(root.$accent-color / 1)};
+  /* Link Icon */
+  --experience-link-icon-width: #{fn.px-to-rem(20px)};
+  --experience-link-icon-height: #{fn.px-to-rem(20px)};
+  --experience-link-icon-color: #{rgb(root.$emphasize-color / 1)};
+  --experience-link-icon-hover-color: #{rgb(root.$accent-color / 1)};
+  --experience-link-icon-hover-transform: translate(3px, -3px);
+  --experience-link-icon-transition: transform 0.25s ease-in-out,
+    fill 0.25s ease-in-out;
+  /* Paragraph */
+  --experience-paragraph-margin-bottom: #{fn.px-to-rem(16px)};
+  /* Tags Container */
+  --experience-tags-container-gap: #{fn.px-to-rem(6px)};
+  /* Tag */
+  --experience-tag-padding: #{fn.px-to-rem(4px) fn.px-to-rem(12px)};
+  --experience-tag-border-radius: 9999px;
+  --experience-tag-color: #{rgb(root.$accent-color / 1)};
+  --experience-tag-bg-color: #{rgb(root.$accent-color / 0.1)};
+
+  scroll-margin-top: var(--experience-scroll-margin-top);
+  margin-bottom: var(--experience-margin-bottom);
 
   @include mixin.breakpoint-up(md) {
-    margin-bottom: 6rem;
+    margin-bottom: var(--experience-margin-bottom-md);
   }
 
   @include mixin.breakpoint-up(lg) {
-    margin-bottom: 9rem;
+    margin-bottom: var(--experience-margin-bottom-lg);
   }
 
   &__item {
-    margin-bottom: fn.px-to-rem(48px);
+    margin-bottom: var(--experience-item-margin-bottom);
 
     &:last-child {
-      margin-bottom: 0;
+      margin-bottom: var(--experience-item-last-child-margin-bottom);
     }
 
     &:hover .experience__hover-background {
@@ -32,16 +97,20 @@
     position: relative;
     display: grid;
     transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.15s;
+    transition-timing-function: var(
+      --experience-work-item-container-transition-timing-function
+    );
+    transition-duration: var(
+      --experience-work-item-container-transition-duration
+    );
 
     @include mixin.breakpoint-up(sm) {
       grid-template-columns: repeat(8, minmax(0, 1fr));
-      gap: fn.px-to-rem(32px);
+      gap: var(--experience-work-item-container-gap-sm);
     }
 
     @include mixin.breakpoint-up(md) {
-      gap: fn.px-to-rem(16px);
+      gap: var(--experience-work-item-container-gap-md);
     }
   }
 
@@ -49,32 +118,30 @@
     display: none;
     position: absolute;
     z-index: 0;
-    top: fn.px-to-rem(-16px);
-    bottom: fn.px-to-rem(-16px);
-    left: fn.px-to-rem(-16px);
-    right: fn.px-to-rem(-16px);
-    border-radius: fn.px-to-rem(6px);
-
-    transition-property: color, background-color, border-color,
-      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-      filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.15s;
+    top: var(--experience-hover-background-position-offset);
+    bottom: var(--experience-hover-background-position-offset);
+    left: var(--experience-hover-background-position-offset);
+    right: var(--experience-hover-background-position-offset);
+    border-radius: var(--experience-hover-background-border-radius);
+    transition-property: var(--experience-hover-background-transition-property);
+    transition-timing-function: var(
+      --experience-hover-background-transition-timing-function
+    );
+    transition-duration: var(--experience-hover-background-transition-duration);
 
     @include mixin.breakpoint-up(lg) {
-      box-shadow: 0 0 #0000, 0 0 #0000, inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
-      filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
-        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
-      background-color: rgba(30, 41, 59, 0.5);
-      left: fn.px-to-rem(-24px);
-      right: fn.px-to-rem(-24px);
+      box-shadow: var(--experience-hover-background-box-shadow-lg);
+      filter: var(--experience-hover-background-filter-lg);
+      background-color: var(--experience-hover-background-bg-color-lg);
+      left: var(--experience-hover-background-position-offset-lg);
+      right: var(--experience-hover-background-position-offset-lg);
     }
   }
 
   &__year-of-service {
     z-index: 10;
-    margin-bottom: fn.px-to-rem(12px);
-    color: rgb(root.$subtle-color / 1);
+    margin-bottom: var(--experience-yos-margin-bottom);
+    color: var(--experience-yos-color);
     @include mixin.typography-experience-yos;
 
     @include mixin.breakpoint-up(sm) {
@@ -90,46 +157,46 @@
   }
 
   &__job-title-link {
-    @include mixin.typography-experience-job-title;
-    color: rgb(root.$emphasize-color / 1);
     display: flex;
     align-items: end;
-    margin-bottom: fn.px-to-rem(16px);
-    gap: 4px;
+    gap: var(--experience-job-title-link-gap);
+    margin-bottom: var(--experience-job-title-link-margin-bottom);
+    color: var(--experience-job-title-link-color);
+    @include mixin.typography-experience-job-title;
 
     &:hover {
-      color: rgb(root.$accent-color / 1);
+      color: var(--experience-job-title-link-hover-color);
     }
 
     &:hover .experience__link-icon {
-      transform: translate(3px, -3px);
-      color: rgb(root.$accent-color / 1);
+      color: var(--experience-link-icon-hover-color);
+      transform: var(--experience-link-icon-hover-transform);
     }
   }
 
   &__link-icon {
-    width: 20px;
-    height: 20px;
-    color: rgb(root.$emphasize-color / 1);
-    transition: transform 0.25s ease-in-out, fill 0.25s ease-in-out;
+    width: var(--experience-link-icon-width);
+    height: var(--experience-link-icon-height);
+    color: var(--experience-link-icon-color);
+    transition: var(--experience-link-icon-transition);
   }
 
   &__paragraph {
+    margin-bottom: var(--experience-paragraph-margin-bottom);
     @include mixin.typography-experience-paragraph;
-    margin-bottom: fn.px-to-rem(16px);
   }
 
   &__tags-container {
     display: flex;
     flex-wrap: wrap;
-    gap: fn.px-to-rem(6px);
+    gap: var(--experience-tags-container-gap);
   }
 
   &__tag {
+    padding: var(--experience-tag-padding);
+    border-radius: var(--experience-tag-border-radius);
+    color: var(--experience-tag-color);
+    background-color: var(--experience-tag-bg-color);
     @include mixin.typography-experience-tag;
-    background-color: rgb(root.$accent-color / 0.1);
-    color: rgb(root.$accent-color / 1);
-    padding: fn.px-to-rem(4px) fn.px-to-rem(12px);
-    border-radius: 9999px;
   }
 }
