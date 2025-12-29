@@ -93,7 +93,7 @@
 @mixin typography-experience-paragraph {
   font-size: fn.px-to-rem(14px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.675;
 }
 
 @mixin typography-experience-tag {
@@ -111,7 +111,7 @@
 @mixin typography-project-paragraph {
   font-size: fn.px-to-rem(14px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.675;
 }
 
 @mixin typography-project-tag {

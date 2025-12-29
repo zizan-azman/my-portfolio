@@ -12,10 +12,6 @@
   }
 
   @include mixin.breakpoint-up(lg) {
-    // gap: 16px;
-    // flex-direction: row;
-    // height: 100vh;
-    // overflow-y: auto;
     padding: 0;
   }
 

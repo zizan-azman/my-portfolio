@@ -14,11 +14,22 @@
   $header-layout-padding-lg: fn.px-to-rem(96px) fn.px-to-rem(0px)
     fn.px-to-rem(96px) fn.px-to-rem(48px);
 
+  position: relative;
   display: flex;
   flex-direction: column;
 
   @include mixin.breakpoint-up(lg) {
     height: 100%;
     padding: $header-layout-padding-lg;
+  }
+
+  &__radial-background {
+    position: absolute;
+    top: -250px;
+    left: -300px;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(rgba(29, 78, 216, 0.15), transparent 80%);
   }
 }

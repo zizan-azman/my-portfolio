@@ -83,6 +83,9 @@
   &__img {
     width: 100%;
     height: auto;
+    border-radius: 4px;
+    border: 2px solid rgb(root.$emphasize-color / 0.9);
+    // box-shadow: 2px 2px 6px 2px rgb(root.$emphasize-color/0.3);
   }
 
   &__project-item-content {
@@ -94,6 +97,7 @@
 
   &__project-link {
     @include mixin.typography-project-title;
+    width: fit-content;
     color: rgb(root.$emphasize-color / 1);
     display: flex;
     align-items: end;
@@ -119,7 +123,37 @@
 
   &__paragraph {
     @include mixin.typography-project-paragraph;
+    margin-bottom: fn.px-to-rem(24px);
+  }
+
+  &__another-link {
+    @include mixin.typography-project-title;
+    display: block;
+    width: fit-content;
+    color: rgb(root.$emphasize-color / 1);
+    transition: color 0.35s ease-in-out;
     margin-bottom: fn.px-to-rem(16px);
+
+    &:hover {
+      .projects__another-link-underline {
+        width: 100%;
+        background-color: rgb(root.$emphasize-color / 1);
+      }
+    }
+  }
+
+  &__another-link-text-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: fn.px-to-rem(8px);
+  }
+
+  &__another-link-underline {
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.35s ease-in-out, width 0.35s ease-in-out;
   }
 
   &__tags-container {

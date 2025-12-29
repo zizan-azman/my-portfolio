@@ -3,3 +3,12 @@
 .text-emphasize {
   color: rgb(root.$emphasize-color/1);
 }
+
+.text-accent {
+  color: rgb(root.$accent-color/1);
+}
+
+.text-bold {
+  // font-weight: 700;
+  color: rgb(root.$emphasize-color/0.9);
+}
