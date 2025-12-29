@@ -3,21 +3,31 @@
 @use "abstracts/functions" as fn;
 
 .display {
+  /* Name */
+  --display-name-color: #{rgb(root.$emphasize-color / 1)};
+  /* Job Title */
+  --display-job-title-color: #{rgb(root.$emphasize-color / 1)};
+  --display-job-title-margin-top: #{fn.px-to-rem(12px)};
+  /* Summary */
+  --display-summary-max-width: #{fn.px-to-rem(320px)};
+  --display-summary-margin-top: #{fn.px-to-rem(16px)};
+  --display-summary-color: #{rgb(root.$foreground-color / 1)};
+
   &__name {
-    color: rgba(root.$emphasize-color / 1);
+    color: var(--display-name-color);
     @include mixin.typography-display-name;
   }
 
   &__job-title {
-    color: rgba(root.$emphasize-color / 1);
-    margin-top: fn.px-to-rem(12px);
+    color: var(--display-job-title-color);
+    margin-top: var(--display-job-title-margin-top);
     @include mixin.typography-display-title;
   }
 
   &__summary {
-    max-width: fn.px-to-rem(320px);
-    color: rgba(root.$foreground-color / 1);
-    margin-top: fn.px-to-rem(16px);
+    max-width: var(--display-summary-max-width);
+    margin-top: var(--display-summary-margin-top);
+    color: var(--display-summary-color);
     @include mixin.typography-display-summary;
   }
 }

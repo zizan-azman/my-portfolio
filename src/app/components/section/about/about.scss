@@ -3,28 +3,41 @@
 @use "base/root-var" as root;
 
 .about {
-  scroll-margin-top: 96px;
-  margin-bottom: 4rem;
+  /* Self */
+  --about-scroll-margin-top: #{fn.px-to-rem(96px)};
+  --about-margin-bottom: 4rem;
+  --about-margin-bottom-md: 6rem;
+  --about-margin-bottom-lg: 9rem;
+  /* Paragraph */
+  --about-paragraph-margin-bottom: #{fn.px-to-rem(16px)};
+  --about-paragraph-color: #{rgb(root.$foreground-color/1)};
+  /* Link */
+  --about-link-color: #{rgb(root.$emphasize-color/1)};
+  /* Highlight */
+  --about-highlight-color: #{rgb(root.$emphasize-color/1)};
+
+  scroll-margin-top: var(--about-scroll-margin-top);
+  margin-bottom: var(--about-margin-bottom);
 
   @include mixin.breakpoint-up(md) {
-    margin-bottom: 6rem;
+    margin-bottom: var(--about-margin-bottom-md);
   }
 
   @include mixin.breakpoint-up(lg) {
-    margin-bottom: 9rem;
+    margin-bottom: var(--about-margin-bottom-lg);
   }
 
   &__paragraph {
+    margin-bottom: var(--about-paragraph-margin-bottom);
+    color: var(--about-paragraph-color);
     @include mixin.typography-about-paragraph;
-    color: rgb(root.$foreground-color/1);
-    margin-bottom: fn.px-to-rem(16px);
   }
 
   &__link {
-    color: rgb(root.$emphasize-color/1);
+    color: var(--about-link-color);
   }
 
   &__highlight {
-    color: rgb(root.$emphasize-color/1);
+    color: var(--about-highlight-color);
   }
 }
