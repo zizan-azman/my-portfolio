@@ -3,22 +3,109 @@
 @use "base/root-var" as root;
 
 .projects {
-  scroll-margin-top: 96px;
-  margin-bottom: 4rem;
+  /* Self */
+  --projects-scroll-margin-top: #{fn.px-to-rem(96px)};
+  --projects-margin-bottom: 4rem;
+  --projects-margin-bottom-md: 6rem;
+  --projects-margin-bottom-lg: 9rem;
+  /* Item */
+  --projects-item-margin-bottom: #{fn.px-to-rem(48px)};
+  --projects-item-last-child-margin-bottom: 0;
+  /* Hover Background */
+  --projects-hover-background-position-offset: #{fn.px-to-rem(-16px)};
+  --projects-hover-background-position-offset-lg: #{fn.px-to-rem(-24px)};
+  --projects-hover-background-border-radius: #{fn.px-to-rem(6px)};
+  --projects-hover-background-transition-property: color, background-color,
+    border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  --projects-hover-background-transition-timing-function: cubic-bezier(
+    0.4,
+    0,
+    0.2,
+    1
+  );
+  --projects-hover-background-transition-duration: 0.15s;
+  --projects-hover-background-bg-color-lg: rgba(30, 41, 59, 0.5);
+  --projects-hover-background-box-shadow-lg: 0 0 #0000, 0 0 #0000,
+    inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+  --projects-hover-background-filter-lg: drop-shadow(
+      0 10px 8px rgba(0, 0, 0, 0.04)
+    )
+    drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+  /* Project Item Container*/
+  --projects-project-item-container-transition-timing-function: cubic-bezier(
+    0.4,
+    0,
+    0.2,
+    1
+  );
+  --projects-project-item-container-transition-duration: 0.15s;
+  --projects-project-item-container-gap-sm: #{fn.px-to-rem(32px)};
+  --projects-project-item-container-gap-md: #{fn.px-to-rem(16px)};
+  /* Img Container */
+  --projects-img-container-margin-bottom: #{fn.px-to-rem(12px)};
+  /* Img */
+  --projects-img-width: 100%;
+  --projects-img-height: auto;
+  --projects-img-border: #{2px solid rgb(root.$emphasize-color / 0.9)};
+  --projects-img-border-radius: 4px;
+  /* Project Link */
+  --projects-project-link-gap: #{fn.px-to-rem(4px)};
+  --projects-project-link-margin-bottom: #{fn.px-to-rem(16px)};
+  --projects-project-link-color: #{rgb(root.$emphasize-color / 1)};
+  --projects-project-link-hover-color: #{rgb(root.$accent-color / 1)};
+  /* Link Icon */
+  --projects-link-icon-width: #{fn.px-to-rem(20px)};
+  --projects-link-icon-height: #{fn.px-to-rem(20px)};
+  --projects-link-icon-color: #{rgb(root.$emphasize-color / 1)};
+  --projects-link-icon-hover-color: #{rgb(root.$accent-color / 1)};
+  --projects-link-icon-hover-transform: translate(3px, -3px);
+  --projects-link-icon-transition: transform 0.25s ease-in-out,
+    fill 0.25s ease-in-out;
+  /* Paragraph */
+  --projects-paragraph-margin-bottom: #{fn.px-to-rem(24px)};
+  /* Another Link */
+  --projects-another-link-color: #{rgb(root.$emphasize-color / 1)};
+  --projects-another-link-margin-bottom: #{fn.px-to-rem(16px)};
+  --projects-another-link-transition: color 0.35s ease-in-out;
+  /* Another Link Underline */
+  --projects-another-link-underline-width: 0;
+  --projects-another-link-underline-height: #{fn.px-to-rem(2px)};
+  --projects-another-link-underline-bg-color: transparent;
+  --projects-another-link-underline-transition: background-color 0.35s
+      ease-in-out,
+    width 0.35s ease-in-out;
+  --projects-another-link-underline-hover-width: 100%;
+  --projects-another-link-underline-hover-bg-color: #{rgb(
+      root.$emphasize-color / 1
+    )};
+  /* Another Link Text Icon Container */
+  --projects-another-link-text-icon-container-gap: #{fn.px-to-rem(4px)};
+  --projects-another-link-text-icon-container-margin-bottom: #{fn.px-to-rem(8px)};
+  /* Tags Container */
+  --projects-tags-container-gap: #{fn.px-to-rem(6px)};
+  /* Tag */
+  --projects-tag-padding: #{fn.px-to-rem(4px) fn.px-to-rem(12px)};
+  --projects-tag-border-radius: 9999px;
+  --projects-tag-color: #{rgb(root.$accent-color / 1)};
+  --projects-tag-bg-color: #{rgb(root.$accent-color / 0.1)};
+
+  scroll-margin-top: var(--projects-scroll-margin-top);
+  margin-bottom: var(--projects-margin-bottom);
 
   @include mixin.breakpoint-up(md) {
-    margin-bottom: 6rem;
+    margin-bottom: var(--projects-margin-bottom-md);
   }
 
   @include mixin.breakpoint-up(lg) {
-    margin-bottom: 9rem;
+    margin-bottom: var(--projects-margin-bottom-lg);
   }
 
   &__item {
-    margin-bottom: fn.px-to-rem(48px);
+    margin-bottom: var(--projects-item-margin-bottom);
 
     &:last-child {
-      margin-bottom: 0;
+      margin-bottom: var(--projects-item-last-child-margin-bottom);
     }
 
     &:hover .projects__hover-background {
@@ -32,16 +119,20 @@
     position: relative;
     display: grid;
     transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.15s;
+    transition-timing-function: var(
+      --projects-project-item-container-transition-timing-function
+    );
+    transition-duration: var(
+      --projects-project-item-container-transition-duration
+    );
 
     @include mixin.breakpoint-up(sm) {
       grid-template-columns: repeat(8, minmax(0, 1fr));
-      gap: fn.px-to-rem(32px);
+      gap: var(--projects-project-item-container-gap-sm);
     }
 
     @include mixin.breakpoint-up(md) {
-      gap: fn.px-to-rem(16px);
+      gap: var(--projects-project-item-container-gap-md);
     }
   }
 
@@ -49,31 +140,29 @@
     display: none;
     position: absolute;
     z-index: 0;
-    top: fn.px-to-rem(-16px);
-    bottom: fn.px-to-rem(-16px);
-    left: fn.px-to-rem(-16px);
-    right: fn.px-to-rem(-16px);
-    border-radius: fn.px-to-rem(6px);
-
-    transition-property: color, background-color, border-color,
-      text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-      filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 0.15s;
+    top: var(--projects-hover-background-position-offset);
+    bottom: var(--projects-hover-background-position-offset);
+    left: var(--projects-hover-background-position-offset);
+    right: var(--projects-hover-background-position-offset);
+    border-radius: var(--projects-hover-background-border-radius);
+    transition-property: var(--projects-hover-background-transition-property);
+    transition-timing-function: var(
+      --projects-hover-background-transition-timing-function
+    );
+    transition-duration: var(--projects-hover-background-transition-duration);
 
     @include mixin.breakpoint-up(lg) {
-      box-shadow: 0 0 #0000, 0 0 #0000, inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
-      filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
-        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
-      background-color: rgba(30, 41, 59, 0.5);
-      left: fn.px-to-rem(-24px);
-      right: fn.px-to-rem(-24px);
+      left: var(--projects-hover-background-position-offset-lg);
+      right: var(--projects-hover-background-position-offset-lg);
+      background-color: var(--projects-hover-background-bg-color-lg);
+      box-shadow: var(--projects-hover-background-box-shadow-lg);
+      filter: var(--projects-hover-background-filter-lg);
     }
   }
 
   &__img-container {
     z-index: 10;
-    margin-bottom: fn.px-to-rem(12px);
+    margin-bottom: var(--projects-img-container-margin-bottom);
 
     @include mixin.breakpoint-up(sm) {
       grid-column: span 2 / span 2;
@@ -81,11 +170,10 @@
   }
 
   &__img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 2px solid rgb(root.$emphasize-color / 0.9);
-    // box-shadow: 2px 2px 6px 2px rgb(root.$emphasize-color/0.3);
+    width: var(--projects-img-width);
+    height: var(--projects-img-height);
+    border: var(--projects-img-border);
+    border-radius: var(--projects-img-border-radius);
   }
 
   &__project-item-content {
@@ -96,48 +184,49 @@
   }
 
   &__project-link {
-    @include mixin.typography-project-title;
-    width: fit-content;
-    color: rgb(root.$emphasize-color / 1);
     display: flex;
     align-items: end;
-    margin-bottom: fn.px-to-rem(16px);
-    gap: 4px;
+    gap: var(--projects-project-link-gap);
+    width: fit-content;
+    margin-bottom: var(--projects-project-link-margin-bottom);
+    color: var(--projects-project-link-color);
+    @include mixin.typography-project-title;
 
     &:hover {
-      color: rgb(root.$accent-color / 1);
+      color: var(--projects-project-link-hover-color);
     }
 
     &:hover .projects__link-icon {
-      transform: translate(3px, -3px);
-      color: rgb(root.$accent-color / 1);
+      color: var(--projects-link-icon-hover-color);
+      transform: var(--projects-link-icon-hover-transform);
     }
   }
 
   &__link-icon {
-    width: 20px;
-    height: 20px;
-    color: rgb(root.$emphasize-color / 1);
-    transition: transform 0.25s ease-in-out, fill 0.25s ease-in-out;
+    width: var(--projects-link-icon-width);
+    height: var(--projects-link-icon-height);
+    color: var(--projects-link-icon-color);
+    transition: var(--projects-link-icon-transition);
   }
 
   &__paragraph {
+    margin-bottom: var(--projects-paragraph-margin-bottom);
     @include mixin.typography-project-paragraph;
-    margin-bottom: fn.px-to-rem(24px);
   }
 
   &__another-link {
-    @include mixin.typography-project-title;
     display: block;
     width: fit-content;
-    color: rgb(root.$emphasize-color / 1);
-    transition: color 0.35s ease-in-out;
-    margin-bottom: fn.px-to-rem(16px);
+    margin-bottom: var(--projects-another-link-margin-bottom);
+    color: var(--projects-another-link-color);
+    transition: var(--projects-another-link-transition);
+
+    @include mixin.typography-project-title;
 
     &:hover {
       .projects__another-link-underline {
-        width: 100%;
-        background-color: rgb(root.$emphasize-color / 1);
+        width: var(--projects-another-link-underline-hover-width);
+        background-color: var(--projects-another-link-underline-hover-bg-color);
       }
     }
   }
@@ -145,28 +234,30 @@
   &__another-link-text-icon-container {
     display: flex;
     align-items: center;
-    gap: 4px;
-    margin-bottom: fn.px-to-rem(8px);
+    gap: var(--projects-another-link-text-icon-container-gap);
+    margin-bottom: var(
+      --projects-another-link-text-icon-container-margin-bottom
+    );
   }
 
   &__another-link-underline {
-    width: 0;
-    height: 2px;
-    background-color: transparent;
-    transition: background-color 0.35s ease-in-out, width 0.35s ease-in-out;
+    width: var(--projects-another-link-underline-width);
+    height: var(--projects-another-link-underline-height);
+    background-color: var(--projects-another-link-underline-bg-color);
+    transition: var(--projects-another-link-underline-transition);
   }
 
   &__tags-container {
     display: flex;
     flex-wrap: wrap;
-    gap: fn.px-to-rem(6px);
+    gap: var(--projects-tags-container-gap);
   }
 
   &__tag {
+    padding: var(--projects-tag-padding);
+    border-radius: var(--projects-tag-border-radius);
+    color: var(--projects-tag-color);
+    background-color: var(--projects-tag-bg-color);
     @include mixin.typography-project-tag;
-    background-color: rgb(root.$accent-color / 0.1);
-    color: rgb(root.$accent-color / 1);
-    padding: fn.px-to-rem(4px) fn.px-to-rem(12px);
-    border-radius: 9999px;
   }
 }
