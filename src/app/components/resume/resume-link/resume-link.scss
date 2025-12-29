@@ -14,6 +14,10 @@
 }
 
 .resume-link {
+  /* Self */
+  --resume-link-margin-bottom: 4rem;
+  --resume-link-margin-bottom-md: 6rem;
+
   /* Link */
   --resume-link-link-gap: #{fn.px-to-rem(4px)};
   /* Icon */
@@ -26,6 +30,11 @@
   --resume-link-text-color: #{rgb(root.$emphasize-color / 1)};
 
   width: fit-content;
+  margin-bottom: var(--resume-link-margin-bottom);
+
+  @include mixin.breakpoint-up(md) {
+    margin-bottom: var(--resume-link-margin-bottom-md);
+  }
 
   &__link {
     display: flex;

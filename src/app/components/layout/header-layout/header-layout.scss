@@ -15,10 +15,18 @@
   --header-layout-padding-lg: #{fn.px-to-rem(96px) fn.px-to-rem(0px)
     fn.px-to-rem(96px) fn.px-to-rem(48px)};
   /* Radial Background */
-  --radial-top: -250px;
-  --radial-left: -300px;
-  --radial-width: #{fn.px-to-rem(800px)};
-  --radial-height: #{fn.px-to-rem(800px)};
+  --radial-top: #{fn.px-to-rem(-130px)};
+  --radial-left: #{fn.px-to-rem(-120px)};
+  --radial-top-md: #{fn.px-to-rem(-300px)};
+  --radial-left-md: #{fn.px-to-rem(-200px)};
+  --radial-top-lg: #{fn.px-to-rem(-250px)};
+  --radial-left-lg: #{fn.px-to-rem(-300px)};
+  --radial-width: #{400px};
+  --radial-height: #{400px};
+  --radial-width-md: #{fn.px-to-rem(600px)};
+  --radial-height-md: #{fn.px-to-rem(600px)};
+  --radial-width-lg: #{fn.px-to-rem(800px)};
+  --radial-height-lg: #{fn.px-to-rem(800px)};
   --radial-border-radius: 50%;
   --radial-background: radial-gradient(
     rgba(29, 78, 216, 0.15),
@@ -43,5 +51,19 @@
     height: var(--radial-height);
     border-radius: var(--radial-border-radius);
     background: var(--radial-background);
+
+    @include mixin.breakpoint-up(md) {
+      top: var(--radial-top-md);
+      left: var(--radial-left-md);
+      width: var(--radial-width-md);
+      height: var(--radial-height-md);
+    }
+
+    @include mixin.breakpoint-up(lg) {
+      top: var(--radial-top-lg);
+      left: var(--radial-left-lg);
+      width: var(--radial-width-lg);
+      height: var(--radial-height-lg);
+    }
   }
 }
