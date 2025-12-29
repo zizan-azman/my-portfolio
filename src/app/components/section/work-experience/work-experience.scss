@@ -46,10 +46,14 @@
   --experience-yos-margin-bottom: #{fn.px-to-rem(12px)};
   --experience-yos-color: #{rgb(root.$subtle-color / 1)};
   /* Job Title Link */
-  --experience-job-title-link-gap: #{fn.px-to-rem(4px)};
+  --experience-job-title-link-gap: #{fn.px-to-rem(8px)};
+  --experience-job-title-link-gap-sm: #{fn.px-to-rem(4px)};
   --experience-job-title-link-margin-bottom: #{fn.px-to-rem(16px)};
   --experience-job-title-link-color: #{rgb(root.$emphasize-color / 1)};
   --experience-job-title-link-hover-color: #{rgb(root.$accent-color / 1)};
+  /* Link Text */
+  --experience-link-text-width: #{fn.px-to-rem(250px)};
+  --experience-link-text-width-sm: auto;
   /* Link Icon */
   --experience-link-icon-width: #{fn.px-to-rem(20px)};
   --experience-link-icon-height: #{fn.px-to-rem(20px)};
@@ -158,8 +162,9 @@
 
   &__job-title-link {
     display: flex;
-    align-items: end;
+    align-items: center;
     gap: var(--experience-job-title-link-gap);
+    width: var(--experience-job-title-link-width);
     margin-bottom: var(--experience-job-title-link-margin-bottom);
     color: var(--experience-job-title-link-color);
     @include mixin.typography-experience-job-title;
@@ -172,9 +177,24 @@
       color: var(--experience-link-icon-hover-color);
       transform: var(--experience-link-icon-hover-transform);
     }
+
+    @include mixin.breakpoint-up(sm) {
+      align-items: end;
+      gap: var(--experience-job-title-link-gap-sm);
+      width: var(--experience-job-title-link-width-sm);
+    }
+  }
+
+  &__link-text {
+    width: var(--experience-link-text-width);
+
+    @include mixin.breakpoint-up(sm) {
+      width: var(--experience-link-text-width-sm);
+    }
   }
 
   &__link-icon {
+    flex-shrink: 0;
     width: var(--experience-link-icon-width);
     height: var(--experience-link-icon-height);
     color: var(--experience-link-icon-color);
