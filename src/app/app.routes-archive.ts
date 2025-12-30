@@ -6,6 +6,13 @@ export const routes: Routes = [
     loadComponent: () => import('./components/home/home').then((m) => m.Home),
   },
   {
+    path: 'resume',
+    loadComponent: () =>
+      import('./components/resume/resume-view/resume-view').then(
+        (m) => m.ResumeView
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',
