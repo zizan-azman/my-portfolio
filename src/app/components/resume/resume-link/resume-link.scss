@@ -17,6 +17,7 @@
   /* Self */
   --resume-link-margin-bottom: 4rem;
   --resume-link-margin-bottom-md: 6rem;
+  --resume-link-margin-bottom-lg: 0;
 
   /* Link */
   --resume-link-link-gap: #{fn.px-to-rem(4px)};
@@ -34,6 +35,10 @@
 
   @include mixin.breakpoint-up(md) {
     margin-bottom: var(--resume-link-margin-bottom-md);
+  }
+
+  @include mixin.breakpoint-up(lg) {
+    margin-bottom: var(--resume-link-margin-bottom-lg);
   }
 
   &__link {

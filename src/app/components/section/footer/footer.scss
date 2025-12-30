@@ -1,0 +1,15 @@
+@use "abstracts/mixins" as mixin;
+
+.footer {
+  &__text {
+    text-align: center;
+  }
+
+  &__text-sparkle-start {
+    display: none;
+
+    @include mixin.breakpoint-up(sm) {
+      display: inline-block;
+    }
+  }
+}
